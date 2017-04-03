@@ -95,7 +95,14 @@ default
             if(llGetListLength(log) > 9)
                 log = llDeleteSubList(log,0,0);
         }
-        buffer += (string)crash + ". The last crash or restart was " + llDumpList2String(log,"\n");
+                if (llDumpList2String(log,"\n") == "")
+        {
+            buffer += (string)crash + ". There are no logged crashes or restarts \n";
+        }
+        else
+        {
+            buffer += (string)crash + ". The last crash or restart was " + llDumpList2String(log,"\n");
+        }
         if(_buffer != buffer); // Check on what the buffer is displaying
         {
             llSetText(buffer,<1,1,1>,1.0);
