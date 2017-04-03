@@ -68,7 +68,7 @@ default
         if(_buffer != buffer); // Check on what the buffer is displaying
         {
             llSetText(buffer,<1,1,1>,1.0);
-            llSetText("Welcome to "+ (string)llGetRegionName() + " on " + (string)osGetGridName() + ".\n" + "The sim is running OSgrid " + value + "\n Reported Crashes: " + buffer + "\nTouch an area to TP.",<0,1,0>,1);
+            llSetText("Welcome to "+ (string)llGetRegionName() + " on " + (string)osGetGridName() + ".\n" + "The sim is running OSgrid " + value + "\n Reported Crashes: " + buffer,<0,1,0>,1);
             _buffer = buffer;   
         }
         UNIX = _UNIX;
