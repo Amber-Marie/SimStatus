@@ -17,6 +17,25 @@ string right(string src, string divider) {
 
 default
 {
+    // reset script when the object is rezzed
+    on_rez(integer start_param)
+    {
+        // This has been addded to do away with the need to have a texture in the prim
+        llSetPrimitiveParams([ PRIM_TEXTURE, ALL_SIDES, TEXTURE_TRANSPARENT, <0.0, 0.0, 0.0>, <0.0, 0.0, 0.0>, 0.0 ]); // Make all sides transparent
+        llResetScript();
+    }
+
+    changed(integer change)
+    {
+        // reset script when the owner or the inventory changed
+        if (change & (CHANGED_OWNER | CHANGED_INVENTORY))
+        {
+            // This has been addded to do away with the need to have a texture in the prim
+            llSetPrimitiveParams([ PRIM_TEXTURE, ALL_SIDES, TEXTURE_TRANSPARENT, <0.0, 0.0, 0.0>, <0.0, 0.0, 0.0>, 0.0 ]); // Make all sides transparent
+            llResetScript();
+        }
+    }
+
     state_entry()
     {
         llSay(0, "Sim Status Script Running");
