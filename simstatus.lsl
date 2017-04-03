@@ -1,3 +1,15 @@
+// Copyright (c) 2017 Amber-Marie Tracey @ OSgrid / AmberMarieTracey @ SecondLife
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense copies of the
+// Software, and to permit persons to whom the Software is furnished to do so,
+// subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
 integer timering = 300; //Define the global integer variable for the polling rate, put the speed you wish, in seconds
 integer UNIX; // Define the global integer variable for times
 string _buffer; // Define the global string variable for the display output
