@@ -95,11 +95,11 @@ default
 
     touch_start(integer num_detected)
     {
-        // This section will report more detailes when the map is clicked
+        // This section will report more details when the map is clicked
         string simver = (string)osGetSimulatorVersion(); // Define the local string variable which containes the version information
         string value = right(simver, "OSgrid"); // Define and set the local string variable  to get the version number
         list Stats = osGetRegionStats(); // Define and set the local list where the stats will be stored
-        string s = "Sim FPS: " + (string) llList2Float( Stats, STATS_SIM_FPS ) + "\n"; // Define and set the local string that the information will be put into
+        string s = "\nSim FPS: " + (string) llList2Float( Stats, STATS_SIM_FPS ) + "\n"; // Define and set the local string that the information will be put into
         s += "Physics FPS: " + (string) llList2Float( Stats, STATS_PHYSICS_FPS ) + "\n";
         s += "Time Dilation: " + (string) llList2Float( Stats, STATS_TIME_DILATION ) + "\n";
         s += "Root Agents: " + (string) llList2Integer( Stats, STATS_ROOT_AGENTS ) + "\n";
@@ -107,9 +107,9 @@ default
         s += "Total Prims: " + (string) llList2Integer( Stats, STATS_TOTAL_PRIMS ) + "\n";
         s += "Active Scripts: " + (string) llList2Integer( Stats, STATS_ACTIVE_SCRIPTS ) + "\n";
         s += "Script LPS: " + (string) llList2Float( Stats, STATS_SCRIPT_LPS );
-        llSay(0,"OSgrid " + value); // Display the server version
-        llSay(0, s); // Display the full list of stats
-        string data = "\n\n Creation Date: " + osLoadedCreationDate(); // Define the local string variable to hold the sim creation details
+        llSay(0,(string)osGetGridName() + " " + value);; // Use the set grid name, and then the version from the server software
+        llSay(0, s + "\n"); // Display the full list of stats
+        string data = "\n Creation Date: " + osLoadedCreationDate(); // Define the local string variable to hold the sim creation details
         data += "\n Creation Time: " + osLoadedCreationTime();
         data += "\n Creation ID: " + osLoadedCreationID();
         llSay(0, data);  
