@@ -99,7 +99,8 @@ default
         if(_buffer != buffer); // Check on what the buffer is displaying
         {
             llSetText(buffer,<1,1,1>,1.0);
-            llSetText("Welcome to "+ (string)llGetRegionName() + " on " + (string)osGetGridName() + ".\n" + "The sim is running OSgrid " + value + "\n Reported Crashes: " + buffer,<0,1,0>,1);
+            llSetText("Welcome to "+ (string)llGetRegionName() + " on " + (string)osGetGridName() + ".\n" + "The sim is running OSgrid " + value + "\n Reported Crashes: " + buffer,<0,1,0>,1); // Uncoment this line and comment out the line below if using this as a map only
+            // llSetText("Welcome to "+ (string)llGetRegionName() + " on " + (string)osGetGridName() + ".\n" + "The sim is running OSgrid " + value + "\n Reported Crashes: " + buffer + "\n Click on an area to TP there.",<0,1,0>,1); // Uncoment this line and comment out the line above if using as a TP point
             _buffer = buffer;   
         }
         UNIX = _UNIX;
