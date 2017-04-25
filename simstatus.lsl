@@ -1,5 +1,7 @@
 // Copyright (c) 2017 Amber-Marie Tracey @ OSgrid / AmberMarieTracey @ SecondLife
 //
+// Version-2 (25 April 2017)
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
@@ -51,6 +53,7 @@ default
     state_entry()
     {
         llSay(0, "Sim Status Script Running");
+        llSetText("", ZERO_VECTOR, 0);
         llSetPrimitiveParams([ PRIM_TEXTURE, ALL_SIDES, TEXTURE_TRANSPARENT, <0.0, 0.0, 0.0>, <0.0, 0.0, 0.0>, 0.0 ]); // Make all sides transparent
         llSetPrimitiveParams([ PRIM_TEXTURE, 1, osGetMapTexture(), <-1.0, 1.0, 0.0>, <0.0, 0.0, 0.0>, 0.0 ]); // This is the back face, facing away from the TP point. Fliped to match
         llSetPrimitiveParams([ PRIM_TEXTURE, 3, osGetMapTexture(), <1.0, 1.0, 0.0>, <0.0, 0.0, 0.0>, 0.0 ]); // This is the front of our prim
@@ -95,7 +98,14 @@ default
             if(llGetListLength(log) > 9)
                 log = llDeleteSubList(log,0,0);
         }
-        buffer += (string)crash + ". The last crash or restart was " + llDumpList2String(log,"\n");
+                if (llDumpList2String(log,"\n") == "")
+        {
+            buffer += (string)crash + ". There are no logged crashes or restarts \n";
+        }
+        else
+        {
+            buffer += (string)crash + ". The last crash or restart was " + llDumpList2String(log,"\n");
+        }
         if(_buffer != buffer); // Check on what the buffer is displaying
         {
             llSetText(buffer,<1,1,1>,1.0);
